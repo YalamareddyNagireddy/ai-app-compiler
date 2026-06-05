@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "prompt": "Build a business app",
+    "type": "ambiguous",
+    "expected_behavior": "ask_clarification"
+  },
+  {
+    "id": 2,
+    "prompt": "Make something like Amazon but simple",
+    "type": "ambiguous",
+    "expected_behavior": "ask_clarification"
+  },
+  {
+    "id": 3,
+    "prompt": "I want an app for everything",
+    "type": "ambiguous",
+    "expected_behavior": "ask_clarification"
+  },
+  {
+    "id": 4,
+    "prompt": "Build a system",
+    "type": "ambiguous",
+    "expected_behavior": "ask_clarification"
+  },
+  {
+    "id": 5,
+    "prompt": "Create app for my company",
+    "type": "ambiguous",
+    "expected_behavior": "ask_clarification"
+  }
+]

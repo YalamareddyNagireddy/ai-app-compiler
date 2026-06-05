@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "prompt": "Build a CRM app with login, contacts management and dashboard",
+    "type": "normal"
+  },
+  {
+    "id": 2,
+    "prompt": "Create an e-commerce website with product listing, cart and payments",
+    "type": "normal"
+  },
+  {
+    "id": 3,
+    "prompt": "Build a hospital management system with patients, doctors and appointments",
+    "type": "normal"
+  },
+  {
+    "id": 4,
+    "prompt": "Create a school management system with students, teachers and attendance",
+    "type": "normal"
+  },
+  {
+    "id": 5,
+    "prompt": "Build a food delivery app with restaurants, menu and ordering system",
+    "type": "normal"
+  }
+]
