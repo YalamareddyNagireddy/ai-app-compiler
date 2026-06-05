@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    font-family: Inter, Arial;
+    background: #0a0f1c;
+    color: #e5e7eb;
+}
+
+/* TOP BAR */
+.topbar {
+    padding: 18px 30px;
+    background: #0f172a;
+    border-bottom: 1px solid #1f2937;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.topbar p {
+    margin: 5px 0 0 0;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+/* GRID LAYOUT */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    gap: 15px;
+    padding: 20px;
+}
+
+/* CARDS */
+.card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.card.large {
+    grid-column: span 3;
+}
+
+/* INPUT */
+textarea {
+    width: 100%;
+    height: 160px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #374151;
+    background: #0b1220;
+    color: white;
+    outline: none;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #2563eb;
+}
+
+/* STATUS */
+.status {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* PIPELINE */
+.step {
+    background: #0b1220;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #1f2937;
+    font-size: 13px;
+}
+
+/* OUTPUT */
+pre {
+    background: #0b1220;
+    padding: 12px;
+    border-radius: 8px;
+    overflow-x: auto;
+    border: 1px solid #1f2937;
+}
+/* =========================
+   ANIMATIONS (NEW UPGRADE)
+========================= */
+
+/* smooth fade for output */
+pre {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* pipeline glow effect */
+.step {
+    transition: all 0.3s ease;
+}
+
+/* active step glow */
+.step.active {
+    border-color: #3b82f6;
+    box-shadow: 0 0 12px rgba(59,130,246,0.6);
+    transform: scale(1.02);
+}
+
+/* success step */
+.step.done {
+    border-color: #22c55e;
+    box-shadow: 0 0 10px rgba(34,197,94,0.4);
+}
+
+/* button click animation */
+button:active {
+    transform: scale(0.96);
+}
+
+/* status pulse */
+.status {
+    position: relative;
+}
+
+.status.loading::after {
+    content: "";
+    position: absolute;
+    margin-left: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #3b82f6;
+    animation: pulse 1s infinite;
+}
+
+/* animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.6); opacity: 0.4; }
+    100% { transform: scale(1); opacity: 1; }
+}
+#output {
+    min-height: 200px;
+    white-space: pre-wrap;
+    border-left: 3px solid #3b82f6;
+    padding-left: 10px;
+}

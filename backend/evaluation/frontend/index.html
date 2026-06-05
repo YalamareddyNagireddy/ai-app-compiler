@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI App Compiler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+    <div>
+        <h1>AI App Compiler</h1>
+        <p>Convert ideas into production-ready system design</p>
+    </div>
+</div>
+
+<div class="grid">
+
+    <!-- INPUT CARD -->
+    <div class="card">
+        <h2>🧠 Idea Input</h2>
+
+        <textarea id="prompt" placeholder="Example: Build a CRM with login, dashboard, payments..."></textarea>
+
+        <button onclick="generateApp()">Generate System</button>
+
+        <div id="status" class="status"></div>
+    </div>
+
+    <!-- PIPELINE CARD -->
+    <div class="card">
+        <h2>⚙️ AI Pipeline</h2>
+
+        <div id="pipeline">
+            <div class="step">Intent Extraction</div>
+            <div class="step">System Design</div>
+            <div class="step">Schema Generation</div>
+            <div class="step">Validation</div>
+            <div class="step">Runtime Simulation</div>
+        </div>
+    </div>
+
+    <!-- OUTPUT CARD -->
+    <div class="card large">
+        <h2>📦 Output</h2>
+        <pre id="output">Waiting for input...</pre>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

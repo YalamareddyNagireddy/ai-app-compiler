@@ -1,3 +1,4 @@
+from backend.pipeline.ambiguity_handler import AmbiguityHandler
 from backend.pipeline.intent_extractor import IntentExtractor
 from backend.pipeline.system_designer import SystemDesigner
 from backend.pipeline.schema_generator import SchemaGenerator
@@ -17,8 +18,16 @@ class AppCompiler:
         self.repair_engine = RepairEngine()
         self.consistency_checker = ConsistencyChecker()
         self.runtime_simulator = RuntimeSimulator()
+        self.ambiguity_handler = AmbiguityHandler()
 
     def compile(self, prompt):
+        check = self.ambiguity_handler.check(prompt)
+
+        if check["is_ambiguous"]:
+            return {
+                "status": "needs_clarification",
+                "questions": check["questions"]
+             }
 
         intent = self.extractor.extract(prompt)
 
