@@ -35,7 +35,7 @@ async function generateApp() {
     }, 400);
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/generate", {
+        const response = await fetch("https://ai-app-compiler-j6t2.onrender.com", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
