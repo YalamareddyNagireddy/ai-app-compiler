@@ -1,5 +1,43 @@
 # 🧠 AI App Compiler
 
+An AI-powered system that converts natural language application ideas into structured application blueprints.
+
+## 🌐 Live Demo
+
+### Frontend
+
+https://ai-app-compiler-mocha-psi.vercel.app
+
+### Backend API
+
+https://ai-app-compiler-j6t2.onrender.com
+
+### API Documentation
+
+https://ai-app-compiler-j6t2.onrender.com/docs
+
+## Features
+
+* Intent Extraction
+* Design Generation
+* Schema Generation
+* Validation Engine
+* Consistency Checking
+* Runtime Simulation
+* Evaluation Framework
+
+## Tech Stack
+
+* Python
+* FastAPI
+* HTML
+* CSS
+* JavaScript
+* GitHub
+* Render
+* Vercel
+
+
 ## 🚀 Overview
 
 AI App Compiler is a full-stack AI system that converts natural language application ideas into structured system architecture.
