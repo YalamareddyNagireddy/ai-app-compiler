@@ -1,13 +1,18 @@
 async function generateApp() {
     const prompt = document.getElementById("prompt").value;
 
+    if (!prompt.trim()) {
+        alert("Please enter an app idea");
+        return;
+    }
+
     const status = document.getElementById("status");
     const output = document.getElementById("output");
     const steps = document.querySelectorAll(".step");
 
-    // reset UI
-    steps.forEach(s => {
-        s.classList.remove("active", "done");
+    // Reset UI
+    steps.forEach(step => {
+        step.classList.remove("active", "done");
     });
 
     status.innerText = "Processing request...";
@@ -22,6 +27,7 @@ async function generateApp() {
             steps[index - 1].classList.remove("active");
             steps[index - 1].classList.add("done");
         }
+
         if (index < steps.length) {
             steps[index].classList.add("active");
         }
@@ -35,47 +41,55 @@ async function generateApp() {
     }, 400);
 
     try {
-        const response = await fetch("https://ai-app-compiler-j6t2.onrender.com", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ prompt })
-        });
+        const response = await fetch(
+            "https://ai-app-compiler-j6t2.onrender.com/generate",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ prompt })
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error(`HTTP Error: ${response.status}`);
+        }
 
         const data = await response.json();
-        const result = data.result;
 
         clearInterval(interval);
 
-        // finish pipeline animation
-        steps.forEach(s => {
-            s.classList.remove("active");
-            s.classList.add("done");
+        // Finish animation
+        steps.forEach(step => {
+            step.classList.remove("active");
+            step.classList.add("done");
         });
 
-        status.innerText = "Status: " + result.status;
+        status.innerText = "Generation Complete ✅";
         status.classList.remove("loading");
 
-        // =========================
-        // STREAMING OUTPUT (NEW)
-        // =========================
         output.innerText = "";
-        typeWriter(JSON.stringify(result, null, 2), output, 6);
+
+        typeWriter(
+            JSON.stringify(data.result, null, 2),
+            output,
+            5
+        );
 
     } catch (error) {
         clearInterval(interval);
 
-        status.innerText = "Error connecting backend";
+        status.innerText = "Backend Connection Failed ❌";
         status.classList.remove("loading");
 
-        output.innerText = error;
+        output.innerText =
+            "Error: " + error.message;
     }
 }
 
-
 // =========================
-// TYPEWRITER FUNCTION
+// TYPEWRITER EFFECT
 // =========================
 function typeWriter(text, element, speed) {
     let i = 0;
